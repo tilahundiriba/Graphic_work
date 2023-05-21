@@ -1,0 +1,6 @@
+﻿  rotated.cpp
+C:\Users\tilish\source\repos\rotation\rotation\rotated.cpp(9,31): warning C4305: 'argument': truncation from 'double' to 'GLclampf'
+C:\Users\tilish\source\repos\rotation\rotation\rotated.cpp(24,21): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\tilish\source\repos\rotation\rotation\rotated.cpp(46,14): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\tilish\source\repos\rotation\rotation\rotated.cpp(48,17): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  rotation.vcxproj -> C:\Users\tilish\source\repos\rotation\x64\Debug\rotation.exe

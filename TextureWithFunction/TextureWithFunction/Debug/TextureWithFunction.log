@@ -1,0 +1,3 @@
+﻿  Texture.cpp
+C:\Users\tilish\source\repos\TextureWithFunction\TextureWithFunction\Texture.cpp(20,33): warning C4081: expected 'newline'; found '.'
+  TextureWithFunction.vcxproj -> C:\Users\tilish\source\repos\TextureWithFunction\Debug\TextureWithFunction.exe

@@ -1,0 +1,6 @@
+﻿  LabWork.cpp
+C:\Users\tilish\source\repos\LabWorkWithTeacher\LabWorkWithTeacher\LabWork.cpp(9,31): warning C4305: 'argument': truncation from 'double' to 'GLclampf'
+C:\Users\tilish\source\repos\LabWorkWithTeacher\LabWorkWithTeacher\LabWork.cpp(25,21): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\tilish\source\repos\LabWorkWithTeacher\LabWorkWithTeacher\LabWork.cpp(77,14): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\tilish\source\repos\LabWorkWithTeacher\LabWorkWithTeacher\LabWork.cpp(83,14): warning C4305: '-=': truncation from 'double' to 'float'
+  LabWorkWithTeacher.vcxproj -> C:\Users\tilish\source\repos\LabWorkWithTeacher\x64\Debug\LabWorkWithTeacher.exe

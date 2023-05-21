@@ -1,0 +1,12 @@
+﻿  Fasil.cpp
+C:\Users\tilish\source\repos\FasiledesGimb\FasiledesGimb\Fasil.cpp(6,18): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\tilish\source\repos\FasiledesGimb\FasiledesGimb\Fasil.cpp(35,28): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\tilish\source\repos\FasiledesGimb\FasiledesGimb\Fasil.cpp(41,14): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\tilish\source\repos\FasiledesGimb\FasiledesGimb\Fasil.cpp(42,14): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\tilish\source\repos\FasiledesGimb\FasiledesGimb\Fasil.cpp(55,14): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\tilish\source\repos\FasiledesGimb\FasiledesGimb\Fasil.cpp(56,14): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\tilish\source\repos\FasiledesGimb\FasiledesGimb\Fasil.cpp(67,14): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\tilish\source\repos\FasiledesGimb\FasiledesGimb\Fasil.cpp(68,14): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\tilish\source\repos\FasiledesGimb\FasiledesGimb\Fasil.cpp(315,17): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+C:\Users\tilish\source\repos\FasiledesGimb\FasiledesGimb\Fasil.cpp(315,12): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
+  FasiledesGimb.vcxproj -> C:\Users\tilish\source\repos\FasiledesGimb\x64\Debug\FasiledesGimb.exe

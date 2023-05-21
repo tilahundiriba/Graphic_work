@@ -1,0 +1,6 @@
+﻿  Light.cpp
+C:\Users\tilish\source\repos\Lighting\Lighting\Light.cpp(7,12): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
+C:\Users\tilish\source\repos\Lighting\Lighting\Light.cpp(10,50): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
+C:\Users\tilish\source\repos\Lighting\Lighting\Light.cpp(68,24): warning C4305: '+=': truncation from 'double' to 'GLfloat'
+C:\Users\tilish\source\repos\Lighting\Lighting\Light.cpp(68,11): warning C4244: '=': conversion from 'double' to 'GLfloat', possible loss of data
+  Lighting.vcxproj -> C:\Users\tilish\source\repos\Lighting\Debug\Lighting.exe

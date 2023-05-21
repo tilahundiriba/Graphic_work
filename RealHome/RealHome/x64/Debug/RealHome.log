@@ -1,0 +1,10 @@
+﻿  HomeWork.cpp
+C:\Users\tilish\source\repos\RealHome\RealHome\HomeWork.cpp(80,25): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\tilish\source\repos\RealHome\RealHome\HomeWork.cpp(89,25): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\tilish\source\repos\RealHome\RealHome\HomeWork.cpp(127,25): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\tilish\source\repos\RealHome\RealHome\HomeWork.cpp(137,25): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\tilish\source\repos\RealHome\RealHome\HomeWork.cpp(147,25): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\tilish\source\repos\RealHome\RealHome\HomeWork.cpp(157,25): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\tilish\source\repos\RealHome\RealHome\HomeWork.cpp(167,25): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\tilish\source\repos\RealHome\RealHome\HomeWork.cpp(177,25): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+  RealHome.vcxproj -> C:\Users\tilish\source\repos\RealHome\x64\Debug\RealHome.exe

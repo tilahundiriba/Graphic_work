@@ -1,0 +1,4 @@
+﻿  Car.cpp
+Car.obj : error LNK2019: unresolved external symbol "void __cdecl initOpenGl(void)" (?initOpenGl@@YAXXZ) referenced in function main
+Car.obj : error LNK2019: unresolved external symbol "void __cdecl display(void)" (?display@@YAXXZ) referenced in function main
+C:\Users\tilish\source\repos\Car\x64\Debug\Car.exe : fatal error LNK1120: 2 unresolved externals

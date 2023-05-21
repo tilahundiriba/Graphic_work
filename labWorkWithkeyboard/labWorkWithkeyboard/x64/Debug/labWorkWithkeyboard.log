@@ -1,0 +1,4 @@
+﻿  KeyboardEvent.cpp
+C:\Users\tilish\source\repos\labWorkWithkeyboard\labWorkWithkeyboard\KeyboardEvent.cpp(9,31): warning C4305: 'argument': truncation from 'double' to 'GLclampf'
+C:\Users\tilish\source\repos\labWorkWithkeyboard\labWorkWithkeyboard\KeyboardEvent.cpp(25,21): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+  labWorkWithkeyboard.vcxproj -> C:\Users\tilish\source\repos\labWorkWithkeyboard\x64\Debug\labWorkWithkeyboard.exe

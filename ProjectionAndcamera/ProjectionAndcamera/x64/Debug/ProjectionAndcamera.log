@@ -1,0 +1,2 @@
+﻿  Projection.cpp
+C:\Users\tilish\source\repos\ProjectionAndcamera\ProjectionAndcamera\Projection.cpp(1,10): fatal  error C1083: Cannot open include file: 'window.h': No such file or directory

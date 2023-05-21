@@ -1,0 +1,16 @@
+﻿  Homework.cpp
+C:\Users\tilish\source\repos\Homework\Homework\Homework.cpp(9,31): warning C4305: 'argument': truncation from 'double' to 'GLclampf'
+C:\Users\tilish\source\repos\Homework\Homework\Homework.cpp(24,21): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\tilish\source\repos\Homework\Homework\Homework.cpp(33,21): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\tilish\source\repos\Homework\Homework\Homework.cpp(40,21): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\tilish\source\repos\Homework\Homework\Homework.cpp(47,21): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\tilish\source\repos\Homework\Homework\Homework.cpp(54,21): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\tilish\source\repos\Homework\Homework\Homework.cpp(61,21): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\tilish\source\repos\Homework\Homework\Homework.cpp(68,21): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\tilish\source\repos\Homework\Homework\Homework.cpp(75,21): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\tilish\source\repos\Homework\Homework\Homework.cpp(82,21): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\tilish\source\repos\Homework\Homework\Homework.cpp(89,21): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\tilish\source\repos\Homework\Homework\Homework.cpp(96,21): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\tilish\source\repos\Homework\Homework\Homework.cpp(218,25): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\tilish\source\repos\Homework\Homework\Homework.cpp(243,14): warning C4305: '+=': truncation from 'double' to 'float'
+  Homework.vcxproj -> C:\Users\tilish\source\repos\Homework\x64\Debug\Homework.exe

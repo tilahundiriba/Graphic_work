@@ -1,0 +1,4 @@
+﻿  curve.cpp
+C:\Users\tilish\source\repos\tryCurve\tryCurve\curve.cpp(13,23): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+C:\Users\tilish\source\repos\tryCurve\tryCurve\curve.cpp(14,22): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+  tryCurve.vcxproj -> C:\Users\tilish\source\repos\tryCurve\Debug\tryCurve.exe
