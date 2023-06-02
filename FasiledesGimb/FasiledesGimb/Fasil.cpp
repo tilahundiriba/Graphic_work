@@ -9,35 +9,80 @@ float ty = 600.0;
 void init() {
 	glClearColor(1, 1, 1, 0);
 	glMatrixMode(GL_PROJECTION);
-glOrtho(-300, 600, -300, 600, -300, 300);
+glOrtho(-280, 600, -200, 600, -300, 300);
 	//glOrtho(-60, 40, -60, 120, -50, 50);
 //gluPerspective(60, 1, 0.01, 1000);
 	//gluLookAt(1, 0, 1000, 0, 0, 0, 0, 10, 0);
-}
 /*
-void timer(unsigned char key, int x, int y) {
+GLfloat mat_ambient[] = { 0.4, 0.4, 0.4, 1.0 };
+GLfloat mat_diffuse[] = { 1.0, 0.0, 0.0, 1.0 };
+GLfloat mat_specular[] = { 1.0, 0.0, 0.0, 1.0 };
+GLfloat mat_shininess[] = { 100.0 };
 
-	if (key = 'C' || 'c') {
-		i = i++;
-		glutPostRedisplay();//calling reagain display function
-		if (i > 2) {
-			i = 0;
-		}
+glShadeModel(GL_SMOOTH);
+
+glEnable(GL_LIGHTING);
+
+
+
+
+glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, mat_ambient);
+glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, mat_diffuse);
+glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, mat_specular);
+glMaterialfv(GL_FRONT_AND_BACK, GL_SHININESS, mat_shininess);
+GLfloat light_position[] = { 1.0, 1.0, 1.0, 0.0 };
+glLightfv(GL_LIGHT0, GL_POSITION, light_position);
+
+
+
+
+
+
+glEnable(GL_DEPTH_TEST);
+*/
+}/*
+void reshape(int w, int h)
+{
+	glViewport(0, 0, (GLsizei)w, (GLsizei)h);
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	if (w <= h)
+		glOrtho(-1.5, 1.5, -1.5 * (GLfloat)h / (GLfloat)w,
+			1.5 * (GLfloat)h / (GLfloat)w, -10.0, 10.0);
+	else
+		glOrtho(-1.5 * (GLfloat)w / (GLfloat)h,
+			1.5 * (GLfloat)w / (GLfloat)h, -1.5, 1.5, -10.0, 10.0);
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+}
+void keyboard(unsigned char key, int x, int y)
+{
+	if (key == '1')
+	{
+		// Toggle the state of light 0
+		
+			glEnable(GL_LIGHT0);
+			//glDisable(GL_LIGHT0);
+		glutPostRedisplay(); // Mark the window for redisplay
+
+
 	}
+
+
 }*/
 void timer(int w) {
 	glutTimerFunc(1000 / 60, timer, 0);
 	glutPostRedisplay();//calling reagain display function
 	
-	if ((tx <= 800) && (ty <= 1000)) {
-		tx += 0.5;
-		ty += 0.5;
+	if ((tx <= 1200) && (ty <= 1000)) {
+		tx += 0.05;
+		ty += 0.05;
 	
 	}
 	else if ((ty >= 1000)) {
 
-		tx += 0.5;
-		ty -= 0.5;
+		tx += 0.05;
+		ty -= 0.05;
 
 	}
 	else {
@@ -122,6 +167,26 @@ void display()
 	glPopMatrix();
 	
 	//
+	glPushMatrix();
+	glTranslatef(700, 750, 0);
+	glColor3f(1, 1, 1);
+	glutSolidSphere(60, 40, 40);
+	glPopMatrix();
+	glPushMatrix();
+	glTranslatef(700, 700, 0);
+	glColor3f(1, 1, 1);
+	glutSolidSphere(60, 40, 40);
+	glPopMatrix();
+	glPushMatrix();
+	glTranslatef(750, 700, 0);
+	glColor3f(1, 1, 1);
+	glutSolidSphere(60, 40, 40);
+	glPopMatrix();
+	glPushMatrix();
+	glTranslatef(750, 780, 0);
+	glColor3f(1, 1, 1);
+	glutSolidSphere(60, 40, 40);
+	glPopMatrix();
 	
 	glPushMatrix();
 	glColor3f(0.4, 0.2, 0.1);
@@ -232,6 +297,38 @@ void display()
 	glTranslatef(920, 450, 0);
 	glRotatef(-90, 1, 0, 0);
 	glutSolidCone(40, 100, 40, 40);
+	glPopMatrix();
+	//trees5 the left one
+
+	glPushMatrix();
+	glColor3f(0.280, 0.134, 0.0140);
+	glTranslatef(-510, 420, 0);
+	glRotatef(60, 1, 0, 0);
+	glBegin(GL_POLYGON);
+	GLUquadricObj* objtr5 = gluNewQuadric();
+	gluCylinder(objtr5, 10.0, 10, 70, 200, 100);
+	glEnd();
+	glPopMatrix();
+	// cone on it
+	glPushMatrix();
+	glColor3f(0.0, 1.0, 0.0);
+	glTranslatef(-510, 420, 0);
+	glRotatef(-90, 1, 0, 0);
+	glutSolidCone(50, 150, 40, 40);
+	glPopMatrix();
+	// cone on top 
+	glPushMatrix();
+	glColor3f(0.0, 1.0, 0.0);
+	glTranslatef(-510, 450, 0);
+	glRotatef(-90, 1, 0, 0);
+	glutSolidCone(50, 150, 40, 40);
+	glPopMatrix();
+	// cone on top 
+	glPushMatrix();
+	glColor3f(0.0, 1.0, 0.0);
+	glTranslatef(-510, 480, 0);
+	glRotatef(-90, 1, 0, 0);
+	glutSolidCone(50, 150, 40, 40);
 	glPopMatrix();
 	//the top rectangle from the front side and left side
 	glBegin(GL_QUADS);
@@ -503,39 +600,50 @@ void display()
 	glVertex2i(-300, 600);
 	glVertex2i(-400, 700);
 	glVertex2i(-400, 120);
+
 	//the left most for left side wall doors
 	glColor3f(0.1, 0.1, 0.1);
-	glVertex2i(-395, 230);
-	glVertex2i(-395, 410);
-	glVertex2i(-385, 390);
-	glVertex2i(-385, 210);
+	glVertex2i(-395, 210);
+	glVertex2i(-395, 310);
+	glVertex2i(-385, 300);
+	glVertex2i(-385, 190);
+
 	//the right most for left side wall doors
 	glColor3f(0.1, 0.1, 0.1);
-	glVertex2i(-370, 230);
-	glVertex2i(-370, 410);
-	glVertex2i(-355, 390);
-	glVertex2i(-355, 210);
+	glVertex2i(-370, 250);
+	glVertex2i(-370, 370);
+	glVertex2i(-355, 360);
+	glVertex2i(-355, 230);
+
 	//the strip for the left side doors
 	glColor3f(0.170, 0.116, 0.116);
 	glVertex2i(-430, 170);
-	glVertex2i(-375, 230);
-	glVertex2i(-350, 200);
+	glVertex2i(-375, 250);
+	glVertex2i(-350, 220);
 	glVertex2i(-330, 70);
+
 	//the top the left side ground house
-	glColor3f(0.3, 0.6, 0.318);
+	glColor3f(0.510, 0.469, 0.469);
 	glVertex2i(-630, 100);//start
 	glVertex2i(-410, 190);//top
-	glVertex2i(-350, 120);//2top
+	glVertex2i(-340, 110);//2top
 	glVertex2i(-600, 0);//end
 	//the front side ground house
-	glColor3f(0.370, 0.318, 0.318);
+	glColor3f(0.300, 0.182, 0.0270);
 	glVertex2i(-590, -230);//start
 	glVertex2i(-590, 5);//top
-	glVertex2i(-300, 150);//2top
-	glVertex2i(-300, -10);//end
+	glVertex2i(-330, 130);//2top
+	glVertex2i(-330, -10);//end
 	
 //the most left middle window
 	glColor3f(0.1, 0.1, 0.1);
+	glVertex2i(-200, 110);
+	glVertex2i(-200, 180);
+	glVertex2i(-180, 180);
+	glVertex2i(-180, 110);
+
+	//the most left middle window close
+	glColor3f(0.190, 0.122, 0.133);
 	glVertex2i(-200, 110);
 	glVertex2i(-200, 180);
 	glVertex2i(-180, 180);
@@ -546,17 +654,30 @@ void display()
 	glVertex2i(-202, 300);
 	glVertex2i(-178, 300);
 	glVertex2i(-178, 200);
-
+	//
+	glColor3f(0.190, 0.122, 0.133);
+	glVertex2i(-192, 200);
+	glVertex2i(-192, 300);
+	glVertex2i(-178, 300);
+	glVertex2i(-178, 200);
+	
 	//the top  first window curve
 	glColor3f(0.1, 0.1, 0.1);
 	glVertex2i(-202, 300);
 	glVertex2i(-196, 310);
 	glVertex2i(-184, 310);
 	glVertex2i(-178, 300);
+
 	//the top  second window
 	glColor3f(0.1, 0.1, 0.1);
 	glVertex2i(-90, 200);
 	glVertex2i(-90, 300);
+	glVertex2i(-66, 300);
+	glVertex2i(-66, 200);
+	//
+	glColor3f(0.190, 0.122, 0.133);
+	glVertex2i(-80, 200);
+	glVertex2i(-80, 300);
 	glVertex2i(-66, 300);
 	glVertex2i(-66, 200);
 
@@ -572,6 +693,13 @@ void display()
 	glVertex2i(40, 300);
 	glVertex2i(64, 300);
 	glVertex2i(64, 200);
+	//
+	glColor3f(0.190, 0.122, 0.133);
+	glVertex2i(50, 200);
+	glVertex2i(50, 300);
+	glVertex2i(64, 300);
+	glVertex2i(64, 200);
+
 
 	//the top  thrid window curve
 	glColor3f(0.1, 0.1, 0.1);
@@ -609,7 +737,13 @@ void display()
 	glVertex2i(-90, 100);
 	glVertex2i(-55, 100);
 	glVertex2i(-55, 0);
-	//
+	//left bottum door it's close
+	glColor3f(0.240, 0.240, 0.125);
+	glVertex2i(-85, 5);
+	glVertex2i(-85, 100);
+	glVertex2i(-60, 100);
+	glVertex2i(-60, 5);
+
 	glColor3f(0.1, 0.1, 0.1);
 	glVertex2i(-90, 100);
 	glVertex2i(-80, 115);
@@ -663,7 +797,35 @@ void display()
 	glVertex2i(130, 180);
 	glVertex2i(130, -70);
 
+	//open door for get in black open view
+	glColor3f(0.300, 0.255, 0.263);
+	glVertex2i(115, -70);
+	glVertex2i(115, 190);
+	glVertex2i(130, 180);
+	glVertex2i(130, -70);
+
+	/////////the second half of door
+	glColor3f(0.4, 0.2, 0.1);
+	glVertex2i(100, -70);
+	glVertex2i(100, 190);
+	glVertex2i(115, 180);
+	glVertex2i(115, -70);
+
+	
+	/////////the thrid half of door
+	glColor3f(0.4, 0.3, 0.2);
+	glVertex2i(70, -70);
+	glVertex2i(70, 180);
+	glVertex2i(100, 180);
+	glVertex2i(100, -70);
+	/////////the second half half of door
+	glColor3f(0.202, 0.206, 0.210);
+	glVertex2i(90, -70);
+	glVertex2i(90, 170);
+	glVertex2i(115, 150);
+	glVertex2i(115, -70);
 	//main door in black curve
+	glColor3f(0.1, 0.1, 0.2);
 	glVertex2i(70, 180);
 	glVertex2i(90, 200);
 	glVertex2i(110, 200);
@@ -718,80 +880,80 @@ void display()
 	glVertex2i(168, 95);
 	glVertex2i(160, 80);
 	//strip/dereja main door 
-	glColor3f(0.4, 0.4, 0);
+	glColor3f(0.300, 0.255, 0.263);
 	glVertex2i(80,30);
 	glVertex2i(140, 30);
 	glVertex2i(140, 15);
 	glVertex2i(80, 15);
 	//
-	glColor3f(0.7, 0.7, 0);
+	glColor3f(0.480, 0.432, 0.440);
 	glVertex2i(80, 15);
 	glVertex2i(140, 15);
 	glVertex2i(150, 5);
 	glVertex2i(90, 5);
 	//
-	glColor3f(0.4, 0.4, 0);
+	glColor3f(0.300, 0.255, 0.263);
 	glVertex2i(90, 5);
 	glVertex2i(150, 5);
 	glVertex2i(150, -10);
 	glVertex2i(90, -10);
 	//
-	glColor3f(0.7, 0.7, 0);
+	glColor3f(0.480, 0.432, 0.440);
 	glVertex2i(90, -10);
 	glVertex2i(150, -10);
 	glVertex2i(160, -20);
 	glVertex2i(100,-20);
 	//
-	glColor3f(0.4, 0.4, 0);
+	glColor3f(0.300, 0.255, 0.263);
 	glVertex2i(100,-20);
 	glVertex2i(160, -20);
 	glVertex2i(160, -35);
 	glVertex2i(100, -35);
 	//
-	glColor3f(0.7, 0.7, 0);
+	glColor3f(0.480, 0.432, 0.440);
 	glVertex2i(100, -35);
 	glVertex2i(160, -35);
 	glVertex2i(170, -45);
 	glVertex2i(110, -45);
 	//
-	glColor3f(0.4, 0.4, 0);
+	glColor3f(0.300, 0.255, 0.263);
 	glVertex2i(110, -45);
 	glVertex2i(170, -45);
 	glVertex2i(170, -65);
 	glVertex2i(110, -65);
 	//
-	glColor3f(0.7, 0.7, 0);
+	glColor3f(0.480, 0.432, 0.440);
 	glVertex2i(110, -65);
 	glVertex2i(170, -65);
 	glVertex2i(180, -75);
 	glVertex2i(120, -75);
 
 	//
-	glColor3f(0.4, 0.4, 0);
+	glColor3f(0.300, 0.255, 0.263);
 	glVertex2i(120, -75);
 	glVertex2i(180, -75);
 	glVertex2i(180, -95);
 	glVertex2i(120, -95);
 	//
-	glColor3f(0.7, 0.7, 0);
+	glColor3f(0.480, 0.432, 0.440);
 	glVertex2i(120, -95);
 	glVertex2i(180, -95);
 	glVertex2i(190, -105);
 	glVertex2i(130, -105);
 	//
-	glColor3f(0.4, 0.4, 0);
+	glColor3f(0.300, 0.255, 0.263);
 	glVertex2i(130, -105);
 	glVertex2i(190, -105);
 	glVertex2i(190, -120);
 	glVertex2i(130, -120);
 	//
-	glColor3f(0.7, 0.7, 0);
+	glColor3f(0.480, 0.432, 0.440);
 	glVertex2i(130, -120);
 	glVertex2i(190, -120);
 	glVertex2i(200, -130);
 	glVertex2i(120, -130);
 	//
-	glColor3f(0.4, 0.4, 0);
+	glColor3f(0.300, 0.255, 0.263);
 	glVertex2i(120, -130);
 	glVertex2i(200, -130);
 	glVertex2i(200, -145);
@@ -811,8 +973,8 @@ void display()
 	glColor3f(0.710, 0.503, 0.334);
 	glVertex2i(130, -150);
 	glVertex2i(200, -145);
-	glVertex2i(360, -330);
-	glVertex2i(190, -450);
+	glVertex2i(390, -300);
+	glVertex2i(250, -410);
 	//the horizontal  road
 	glColor3f(0.710, 0.503, 0.334);
 	glVertex2i(190, -450);
@@ -860,55 +1022,55 @@ glVertex2i(680, 300);//end
 	glVertex2i(130, 40);
 	glVertex2i(130, -170);
 	//strip /derege
-	glColor3f(0.4, 0.4, 0.0);
+	glColor3f(0.300, 0.255, 0.263);
 	glVertex2i(-30, 50);
 	glVertex2i(0, 50);
 	glVertex2i(0, 35);
 	glVertex2i(-30, 35);
 
-	glColor3f(0.7, 0.7, 0.0);
+	glColor3f(0.480, 0.432, 0.440);
 	glVertex2i(-30, 35);
 	glVertex2i(0, 35);
 	glVertex2i(5, 25);
 	glVertex2i(-25, 25);
 
-	glColor3f(0.4, 0.4, 0.0);
+	glColor3f(0.300, 0.255, 0.263);
 	glVertex2i(-25, 25);
 	glVertex2i(5, 25);
 	glVertex2i(5, 10);
 	glVertex2i(-25, 10);
 
-	glColor3f(0.7, 0.7, 0.0);
+	glColor3f(0.480, 0.432, 0.440);
 	glVertex2i(-25, 10);
 	glVertex2i(5, 10);
 	glVertex2i(10, 0);
 	glVertex2i(-20, 0);
 
-	glColor3f(0.4, 0.4, 0.0);
+	glColor3f(0.300, 0.255, 0.263);
 	glVertex2i(-20, 0);
 	glVertex2i(10, 0);
 	glVertex2i(10, -15);
 	glVertex2i(-20, -15);
 
-	glColor3f(0.7, 0.7, 0.0);
+	glColor3f(0.480, 0.432, 0.440);
 	glVertex2i(-20, -15);
 	glVertex2i(10, -15);
 	glVertex2i(15, -25);
 	glVertex2i(-15, -25);
 
-	glColor3f(0.4, 0.4, 0.0);
+	glColor3f(0.300, 0.255, 0.263);
 	glVertex2i(-15, -25);
 	glVertex2i(15, -25);
 	glVertex2i(15, -40);
 	glVertex2i(-15, -40);
 
-	glColor3f(0.7, 0.7, 0.0);
+	glColor3f(0.480, 0.432, 0.440);
 	glVertex2i(-15, -40);
 	glVertex2i(15, -40);
 	glVertex2i(20, -50);
 	glVertex2i(-10, -50);
 
-	glColor3f(0.4, 0.4, 0.0);
+	glColor3f(0.300, 0.255, 0.263);
 	glVertex2i(-10, -50);
 	glVertex2i(20, -50);
 	glVertex2i(20, -65);
@@ -969,13 +1131,13 @@ glVertex2i(680, 300);//end
 	glVertex2i(60, 50);
 	glVertex2i(50, 40);
 	//the top left litle home
-	glColor3f(0.3, 0.3, 0.2);
+	glColor3f(0.300, 0.279, 0.279);
 	glVertex2i(-300, 600);
 	glVertex2i(-300, 720);
 	glVertex2i(-200, 720);
 	glVertex2i(-200, 600);
 	//the top left litle home left side
-	glColor3f(0.3, 0.3, 0.2);
+	glColor3f(0.300, 0.279, 0.279);
 	glVertex2i(-300, 600);
 	glVertex2i(-300, 720);
 	glVertex2i(-330, 740);
@@ -998,8 +1160,14 @@ glVertex2i(680, 300);//end
 	glVertex2i(-42, 775);
 	glVertex2i(-35, 775);
 	glVertex2i(-35, 705);
+	//the door on the top mama for front side
+	glColor3f(0.1, 0.1, 0.1);
+	glVertex2i(18, 680);
+	glVertex2i(18, 755);
+	glVertex2i(25, 755);
+	glVertex2i(25, 680);
 	//the top mama strip for left side 
-	glColor3f(0.3, 0.3, 0.2);
+	glColor3f(0.300, 0.279, 0.279);
 	glVertex2i(-100, 600);
 	glVertex2i(-50, 700);
 	glVertex2i(-30, 700);
@@ -1114,7 +1282,7 @@ glVertex2i(680, 300);//end
 	glVertex2i(-377, 745);
 	glVertex2i(-373, 745);
 	glVertex2i(-370, 720);
-	//quad for front zigzags thethrid one for the left side
+	//quad for front zigzags the thrid one for the left side
 	glColor3f(0.4, 0.3, 0.2);
 	glVertex2i(-365, 665);
 	glVertex2i(-365, 715);
@@ -1144,42 +1312,84 @@ glVertex2i(680, 300);//end
 	glVertex2i(110, 650);
 	glVertex2i(120, 650);
 	glVertex2i(120, 550);
-
 	glEnd();
-
+	
 	//the curve for the most front side cylinder
 	glPushMatrix();
 	glColor3f(0.4, 0.2, 0.1);
-	glTranslatef(-270, 780, 0);//for translating
-	GLUquadricObj* objj = gluNewQuadric();//for object
-	gluPartialDisk(objj, 0, 45, 50, 50, 90, -180);//for parameter
+	glTranslatef(102, 740, 0);//for translating
+	glBegin(GL_POLYGON);
+	for (int i = 0; i < 360; i++)
+	{
+		float angle = i * 3.14 / 180;
+		float x = 40 * cos(angle) + 28;
+		float y = 90 * sin(angle) + 24.4;
+		glVertex2f(x, y);
+	}
+	glEnd();
 	glPopMatrix();
+
 	//the curve for the most left side cylinder
 	glPushMatrix();
 	glColor3f(0.4, 0.2, 0.1);
-	glTranslatef(-420, 800, 0);//for translating
-	GLUquadricObj* objj1 = gluNewQuadric();//for object
-	gluPartialDisk(objj1, 0, 30, 50, 50, 90, -180);//for parameter
+	glTranslatef(-448, 773, 0);//for translating
+	glBegin(GL_POLYGON);
+	for (int i = 0; i < 360; i++)
+	{
+		float angle = i * 3.14 / 180;
+		float x = 25 * cos(angle) + 28;
+		float y = 90 * sin(angle) + 24.4;
+		glVertex2f(x, y);
+	}
+	glEnd();
 	glPopMatrix();
+
 	//the curve for the most left side cylinder  check it???
+	
 	glPushMatrix();
 	glColor3f(0.4, 0.2, 0.1);
-	glTranslatef(130, 753, 0);//for translating
-	GLUquadricObj* objj2 = gluNewQuadric();//for object
-	gluPartialDisk(objj2, 0, 45, 50, 50, 90, -180);//for parameter
+	glTranslatef(-297, 775, 0);
+	glBegin(GL_POLYGON);
+	for (int i = 0; i < 360; i++)
+	{
+		float angle = i * 3.14 / 180;
+		float x = 40 * cos(angle) + 28;
+		float y = 90 * sin(angle) + 24.4;
+		glVertex2f(x, y);
+	}
+	glEnd();
 	glPopMatrix();
+	
 	//the right most front cylinder
 	glPushMatrix();
 	glColor3f(0.4, 0.2, 0.1);
 	glTranslatef(-270, 780, 0);
 	glRotatef(60, 1, 0, 0);
-
 	glBegin(GL_POLYGON);
 	GLUquadricObj* obj1 = gluNewQuadric();
 	gluCylinder(obj1, 45.0, 55, 970, 100, 100);
 	glEnd();
 	glPopMatrix();
+
 	glBegin(GL_QUADS);
+	//the door on the top most left side cylinder
+	glColor3f(0.1, 0.1, 0.1);
+	glVertex2i(-440, 680);
+	glVertex2i(-440, 755);
+	glVertex2i(-430, 755);
+	glVertex2i(-430, 680);
+	///////the litle window on the left most cylinder
+	glVertex2i(-440, 780);
+	glVertex2i(-440, 790);
+	glVertex2i(-435, 790);
+	glVertex2i(-435, 780);
+	///
+	glVertex2i(-400, 780);
+	glVertex2i(-400, 790);
+	glVertex2i(-395, 790);
+	glVertex2i(-395, 780);
+
+
 	//the window on an cylinder for the middlemost 
 	glColor3f(0.1, 0.1, 0.1);
 	glVertex2i(-315, 550);
@@ -1188,10 +1398,33 @@ glVertex2i(680, 300);//end
 	glVertex2i(-305, 550);
 	//the window on an cylinder for the middle second 
 	glColor3f(0.1, 0.1, 0.1);
-	glVertex2i(-230, 530);
-	glVertex2i(-230, 630);
-	glVertex2i(-240, 630);
-	glVertex2i(-240, 530);
+	glVertex2i(-230, 550);
+	glVertex2i(-230, 650);
+	glVertex2i(-240, 650);
+	glVertex2i(-240, 550);
+	///the litle window on the cylinder for the front side 
+	glVertex2i(-240, 750);
+	glVertex2i(-240, 770);
+	glVertex2i(-235, 770);
+	glVertex2i(-235, 750);
+	//
+	glVertex2i(-300, 750);
+	glVertex2i(-300, 770);
+	glVertex2i(-295, 770);
+	glVertex2i(-295, 750);
+
+	////the litle window for the right most cylinder
+	glVertex2i(100, 720);
+	glVertex2i(100, 740);
+	glVertex2i(107, 740);
+	glVertex2i(107, 720);
+	/////
+	glVertex2i(157, 720);
+	glVertex2i(157, 740);
+	glVertex2i(164, 740);
+	glVertex2i(164, 720);
+
+
 	glEnd();
 	glLineWidth(2);
 	glBegin(GL_LINES);
@@ -1201,31 +1434,16 @@ glVertex2i(680, 300);//end
 	//the horizontal line for the of the window the top one
 	glVertex2i(-222, 500);
 	glVertex2i(100, 500);
-	//the horizontal line for the window the most left one
-	glVertex2i(-452, 660);
-	glVertex2i(-400, 620);
-
-	//the horizontal line for  the left the bottom left one cylinder
-	glVertex2i(-458, 300);
-	glVertex2i(-400, 270);
-
 	//the horizontal line  left top view one
 	glVertex2i(-400, 620);
 	glVertex2i(-318, 534);
 
-	//the horizontal line for the middle cylnder
-	glVertex2i(-222, 500);
-	glVertex2i(-318, 530);
-	//the horizontal line for the right most cylnder
-	glVertex2i(100, 500);
-	glVertex2i(178, 520);
 
 	//the horizontal line for the bottom of the window the bottom one
 	glVertex2i(-217, 200);
 	glVertex2i(40, 200);
 	//
-	glVertex2i(-217, 200);
-	glVertex2i(-322, 220);
+
 	//
 	glVertex2i(-210, 200);
 	glVertex2i(-210, 230);
@@ -1259,11 +1477,13 @@ glVertex2i(680, 300);//end
 int main(int argc, char** argv) {
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_RGB | GLUT_SINGLE);
-	glutInitWindowPosition(10, 10);
-	glutInitWindowSize(1000, 1000);
+	glutInitWindowPosition(0, 0);
+	glutInitWindowSize(1370, 700);
 	glutCreateWindow("fasiledesGimb");
 	init();
 	glutDisplayFunc(display);
+	//glutKeyboardFunc(keyboard);
+	//glutReshapeFunc(reshape);
 	glutTimerFunc(0, timer, 0);
 	//glutKeyboardFunc(timer);
 	glutMainLoop();
