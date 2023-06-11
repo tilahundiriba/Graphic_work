@@ -10,8 +10,27 @@ float ty1m= 430.0;
 float tx2m = 1150.0;
 float ty2m = 430.0;
 
+bool isDay = true;
 float suntx = -600.0;
 float sunty = 600.0;
+struct LightValues {
+	GLfloat ambient[4];
+	GLfloat diffuse[4];
+	GLfloat specular[4];
+};
+// Define two sets of light values: one for day and one for night
+LightValues dayLight = {
+	{0.8, 0.8, 0.8, 1.0},
+	{1.0, 1.0, 1.0, 1.0},
+	{0.9, 0.9, 0.9, 1.0}
+};
+
+LightValues nightLight = {
+	{0.2, 0.2, 0.2, 1.0},
+	{0.8, 0.8, 0.8, 1.0},
+	{0.5, 0.5, 0.5, 1.0}
+};
+
 
 void init() {
 	glClearColor(1, 1, 1, 0);
@@ -20,55 +39,30 @@ glOrtho(-280, 560, -200, 600, -300, 300);
 	//glOrtho(-60, 40, -60, 120, -50, 50);
 //gluPerspective(60, 1, 0.01, 1000);
 	//gluLookAt(1, 0, 1000, 0, 0, 0, 0, 10, 0);
-/*
-GLfloat mat_ambient[] = { 0.4, 0.4, 0.4, 1.0 };
-GLfloat mat_diffuse[] = { 1.0, 0.0, 0.0, 1.0 };
-GLfloat mat_specular[] = { 1.0, 0.0, 0.0, 1.0 };
-GLfloat mat_shininess[] = { 100.0 };
 
-glShadeModel(GL_SMOOTH);
 
-glEnable(GL_LIGHTING);
-
-glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, mat_ambient);
-glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, mat_diffuse);
-glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, mat_specular);
-glMaterialfv(GL_FRONT_AND_BACK, GL_SHININESS, mat_shininess);
-GLfloat light_position[] = { 1.0, 1.0, 1.0, 0.0 };
-glLightfv(GL_LIGHT0, GL_POSITION, light_position);
-
-glEnable(GL_DEPTH_TEST);
-*/
-}/*
-void reshape(int w, int h)
-{
-	glViewport(0, 0, (GLsizei)w, (GLsizei)h);
-	glMatrixMode(GL_PROJECTION);
-	glLoadIdentity();
-	if (w <= h)
-		glOrtho(-1.5, 1.5, -1.5 * (GLfloat)h / (GLfloat)w,
-			1.5 * (GLfloat)h / (GLfloat)w, -10.0, 10.0);
-	else
-		glOrtho(-1.5 * (GLfloat)w / (GLfloat)h,
-			1.5 * (GLfloat)w / (GLfloat)h, -1.5, 1.5, -10.0, 10.0);
-	glMatrixMode(GL_MODELVIEW);
-	glLoadIdentity();
 }
-void keyboard(unsigned char key, int x, int y)
-{
-	if (key == '1')
-	{
-		// Toggle the state of light 0
-		
-			glEnable(GL_LIGHT0);
-			//glDisable(GL_LIGHT0);
-		glutPostRedisplay(); // Mark the window for redisplay
 
 
+
+
+void keyboard(unsigned char key, int x, int y) {
+	switch (key) {
+	case 'd':
+	case 'D':
+		isDay = true;
+		glutPostRedisplay(); // Force a redraw to update the lighting
+		break;
+	case 'n':
+	case 'N':
+		isDay = false;
+		glutPostRedisplay(); // Force a redraw to update the lighting
+		break;
 	}
+}
 
 
-}*/
+
 void timer(int w) {
 	glutTimerFunc(1000 / 60, timer, 0);
 	
@@ -249,14 +243,14 @@ void display()
 	glPopMatrix();
 	// cone on it
 	glPushMatrix();
-	glColor3f(0.0, 1.0, 0.0);
+	glColor3f(0.0, 0.5, 0.0);
 	glTranslatef(320, 420, 0);
 	glRotatef(-90, 1, 0, 0);
 	glutSolidCone(40, 100, 40, 40);
 	glPopMatrix();
 	// cone on top 
 	glPushMatrix();
-	glColor3f(0.0, 1.0, 0.0);
+	glColor3f(0.0, 0.5, 0.0);
 	glTranslatef(320, 450, 0);
 	glRotatef(-90, 1, 0, 0);
 	glutSolidCone(40, 100, 40, 40);
@@ -274,14 +268,14 @@ void display()
 	glPopMatrix();
 	// cone on it
 	glPushMatrix();
-	glColor3f(0.0, 1.0, 0.0);
+	glColor3f(0.0, 0.5, 0.0);
 	glTranslatef(490, 420, 0);
 	glRotatef(-90, 1, 0, 0);
 	glutSolidCone(40, 100, 40, 40);
 	glPopMatrix();
 	// cone on top 
 	glPushMatrix();
-	glColor3f(0.0, 1.0, 0.0);
+	glColor3f(0.0, 0.5, 0.0);
 	glTranslatef(490, 450, 0);
 	glRotatef(-90, 1, 0, 0);
 	glutSolidCone(40, 100, 40, 40);
@@ -299,14 +293,14 @@ void display()
 	glPopMatrix();
 	// cone on it
 	glPushMatrix();
-	glColor3f(0.0, 1.0, 0.0);
+	glColor3f(0.0, 0.5, 0.0);
 	glTranslatef(720, 420, 0);
 	glRotatef(-90, 1, 0, 0);
 	glutSolidCone(40, 100, 40, 40);
 	glPopMatrix();
 	// cone on top 
 	glPushMatrix();
-	glColor3f(0.0, 1.0, 0.0);
+	glColor3f(0.0, 0.5, 0.0);
 	glTranslatef(720, 450, 0);
 	glRotatef(-90, 1, 0, 0);
 	glutSolidCone(40, 100, 40, 40);
@@ -324,14 +318,14 @@ void display()
 	glPopMatrix();
 	// cone on it
 	glPushMatrix();
-	glColor3f(0.0, 1.0, 0.0);
+	glColor3f(0.0, 0.5, 0.0);
 	glTranslatef(920, 420, 0);
 	glRotatef(-90, 1, 0, 0);
 	glutSolidCone(40, 100, 40, 40);
 	glPopMatrix();
 	// cone on top 
 	glPushMatrix();
-	glColor3f(0.0, 1.0, 0.0);
+	glColor3f(0.0, 0.5, 0.0);
 	glTranslatef(920, 450, 0);
 	glRotatef(-90, 1, 0, 0);
 	glutSolidCone(40, 100, 40, 40);
@@ -349,21 +343,21 @@ void display()
 	glPopMatrix();
 	// cone on it
 	glPushMatrix();
-	glColor3f(0.0, 1.0, 0.0);
+	glColor3f(0.0, 0.5, 0.0);
 	glTranslatef(-510, 420, 0);
 	glRotatef(-90, 1, 0, 0);
 	glutSolidCone(50, 150, 40, 40);
 	glPopMatrix();
 	// cone on top 
 	glPushMatrix();
-	glColor3f(0.0, 1.0, 0.0);
+	glColor3f(0.0, 0.5, 0.0);
 	glTranslatef(-510, 450, 0);
 	glRotatef(-90, 1, 0, 0);
 	glutSolidCone(50, 150, 40, 40);
 	glPopMatrix();
 	// cone on top 
 	glPushMatrix();
-	glColor3f(0.0, 1.0, 0.0);
+	glColor3f(0.0, 0.5, 0.0);
 	glTranslatef(-510, 480, 0);
 	glRotatef(-90, 1, 0, 0);
 	glutSolidCone(50, 150, 40, 40);
@@ -1637,7 +1631,28 @@ glVertex2i(50, 40);
 	glVertex2i(680, 300);//end
 	glEnd();
 	glPopMatrix();
+	if (isDay) {
+		glDisable(GL_LIGHTING);
+	
+	}
+	else {
 
+		// Set the light properties
+		GLfloat lightPosition[] = { -1.0, 1.0, 1.0, 1.0 };
+		GLfloat lightAmbient[] = { 0.5, 0.5, 0.5, 1.0 };
+		GLfloat lightDiffuse[] = { 0.5, 0.5, 1.0, 1.0 };
+		GLfloat lightSpecular[] = { 0.5, 0.5, 0.5, 1.0 };
+		glLightfv(GL_LIGHT0, GL_POSITION, lightPosition);
+		glLightfv(GL_LIGHT0, GL_AMBIENT, lightAmbient);
+		glLightfv(GL_LIGHT0, GL_DIFFUSE, lightDiffuse);
+		glLightfv(GL_LIGHT0, GL_SPECULAR, lightSpecular);
+
+		// Enable lighting and set the lighting model
+		glEnable(GL_LIGHTING);
+		glEnable(GL_LIGHT0);
+		glShadeModel(GL_SMOOTH);
+
+	}
 	glFlush();
 
 }
@@ -1646,9 +1661,9 @@ int main(int argc, char** argv) {
 	std::cout << "          \033[33m______________________________________________________________________________________\033[0m" << std::endl;
 	std::cout << "          \033[33m|////////////////////////////////////GROUP MEMBERS////////////////////////////////////|\033[0m" << std::endl;
 	std::cout << "          \033[33m|/////////////////**NAME*****************************ID********************///////////|\033[0m" << std::endl;
-	std::cout << "          \033[33m|////////////////**1.MULUKEN GETAYE...............NSR/1584/13*************///////////|\033[0m" << std::endl;
-	std::cout << "          \033[33m|////////////////**2.TILAHUN DRIBA................NSR/1584/13*************////////////|\033[0m" << std::endl;
-	std::cout << "          \033[33m|////////////////**3.MALAEFIYASH BELETE...........NSR/1372/13*************////////////|\033[0m" << std::endl;
+	std::cout << "          \033[33m|////////////////**1.MULUKEN GETAYE...............NSR/1584/13*************////////////|\033[0m" << std::endl;
+	std::cout << "          \033[33m|////////////////**2.TILAHUN DIRIBA...............NSR/2063/13*************////////////|\033[0m" << std::endl;
+	std::cout << "          \033[33m|////////////////**3.MALEFIYASH BELETE............NSR/1371/13*************////////////|\033[0m" << std::endl;
 	std::cout << "          \033[33m|//////////////////////PROJECT TITLE GONDER FASILDES//////////////////////////////////|\033[0m" << std::endl;
 	std::cout << "          \033[33m|_____________________________________________________________________________________|\033[0m" << std::endl;
 
@@ -1666,11 +1681,10 @@ int main(int argc, char** argv) {
 	glutCreateWindow("fasiledesGimb");
 	init();
 	glutDisplayFunc(display);
-	//glutKeyboardFunc(keyboard);
+	glutKeyboardFunc(keyboard);
 	//glutReshapeFunc(reshape);
 	glutTimerFunc(0, timer, 0);
 	glutTimerFunc(0, timer2, 0);
-	//glutKeyboardFunc(timer);
 	glutMainLoop();
 	break;
 	case 'b':
